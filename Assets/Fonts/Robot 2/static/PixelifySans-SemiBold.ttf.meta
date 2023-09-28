@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ea5775320165b0e4584e2365d57ded7b
+guid: f84ca6274b25c074e98d65bb38654644
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Greek-Freak
+  - Pixelify Sans
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

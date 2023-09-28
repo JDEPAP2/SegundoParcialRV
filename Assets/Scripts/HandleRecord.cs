@@ -8,20 +8,26 @@ public class HandleRecord : MonoBehaviour
     private void Awake()
     {
         SpeechRecognizer.SetDetectionLanguage("ES-es");
-        if (!Permission.HasUserAuthorizedPermission(Permission.Microphone))
-        {
-            Permission.RequestUserPermission(Permission.Microphone);
-        }
+        SetPermission();
     }
 
     public void StartRecordng()
     {
-        SpeechRecognizer.StartRecording(true);
+        if(!SpeechRecognizer.IsRecording())
+            SpeechRecognizer.StartRecording(true);
     }
 
     public void StopRecordng()
     {
         SpeechRecognizer.StopIfRecording();
+    }
+
+    public void SetPermission()
+    {
+        if (!Permission.HasUserAuthorizedPermission(Permission.Microphone))
+        {
+            Permission.RequestUserPermission(Permission.Microphone);
+        }
     }
 
 }
