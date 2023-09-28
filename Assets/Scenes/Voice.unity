@@ -276,7 +276,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 11439722, guid: 69c76459e92ef4228aad5dd1d7ab7921, type: 3}
       propertyPath: onFinalResults.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 11439722, guid: 69c76459e92ef4228aad5dd1d7ab7921, type: 3}
       propertyPath: onPartialResults.m_PersistentCalls.m_Calls.Array.size
@@ -292,7 +292,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 11439722, guid: 69c76459e92ef4228aad5dd1d7ab7921, type: 3}
       propertyPath: onEndOfSpeech.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11439722, guid: 69c76459e92ef4228aad5dd1d7ab7921, type: 3}
       propertyPath: onErrorOnStartRecording.m_PersistentCalls.m_Calls.Array.size
@@ -301,11 +301,15 @@ PrefabInstance:
     - target: {fileID: 11439722, guid: 69c76459e92ef4228aad5dd1d7ab7921, type: 3}
       propertyPath: onEndOfSpeech.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1541902238}
     - target: {fileID: 11439722, guid: 69c76459e92ef4228aad5dd1d7ab7921, type: 3}
       propertyPath: onFinalResults.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1152705744}
+    - target: {fileID: 11439722, guid: 69c76459e92ef4228aad5dd1d7ab7921, type: 3}
+      propertyPath: onFinalResults.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1541902238}
     - target: {fileID: 11439722, guid: 69c76459e92ef4228aad5dd1d7ab7921, type: 3}
       propertyPath: onReadyForSpeech.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 5
@@ -324,15 +328,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 11439722, guid: 69c76459e92ef4228aad5dd1d7ab7921, type: 3}
       propertyPath: onEndOfSpeech.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: set_text
+      value: PlayTextToSpeech
       objectReference: {fileID: 0}
     - target: {fileID: 11439722, guid: 69c76459e92ef4228aad5dd1d7ab7921, type: 3}
       propertyPath: onFinalResults.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 11439722, guid: 69c76459e92ef4228aad5dd1d7ab7921, type: 3}
+      propertyPath: onFinalResults.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11439722, guid: 69c76459e92ef4228aad5dd1d7ab7921, type: 3}
       propertyPath: onFinalResults.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: set_text
+      objectReference: {fileID: 0}
+    - target: {fileID: 11439722, guid: 69c76459e92ef4228aad5dd1d7ab7921, type: 3}
+      propertyPath: onFinalResults.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: StartTextToSpeech
       objectReference: {fileID: 0}
     - target: {fileID: 11439722, guid: 69c76459e92ef4228aad5dd1d7ab7921, type: 3}
       propertyPath: onPartialResults.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
@@ -380,11 +392,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 11439722, guid: 69c76459e92ef4228aad5dd1d7ab7921, type: 3}
       propertyPath: onEndOfSpeech.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: TMPro.TMP_Text, Unity.TextMeshPro
+      value: TextToSpeechTest, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 11439722, guid: 69c76459e92ef4228aad5dd1d7ab7921, type: 3}
       propertyPath: onFinalResults.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: TMPro.TMP_Text, Unity.TextMeshPro
+      objectReference: {fileID: 0}
+    - target: {fileID: 11439722, guid: 69c76459e92ef4228aad5dd1d7ab7921, type: 3}
+      propertyPath: onFinalResults.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: TextToSpeechTest, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 11439722, guid: 69c76459e92ef4228aad5dd1d7ab7921, type: 3}
       propertyPath: onPartialResults.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -396,7 +412,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 11439722, guid: 69c76459e92ef4228aad5dd1d7ab7921, type: 3}
       propertyPath: onEndOfSpeech.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Acabo
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 11439722, guid: 69c76459e92ef4228aad5dd1d7ab7921, type: 3}
       propertyPath: onReadyForSpeech.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
@@ -416,6 +432,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 11439722, guid: 69c76459e92ef4228aad5dd1d7ab7921, type: 3}
       propertyPath: onFinalResults.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 11439722, guid: 69c76459e92ef4228aad5dd1d7ab7921, type: 3}
+      propertyPath: onFinalResults.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 11439722, guid: 69c76459e92ef4228aad5dd1d7ab7921, type: 3}
@@ -1405,6 +1425,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1541902235}
   - component: {fileID: 1541902236}
+  - component: {fileID: 1541902237}
+  - component: {fileID: 1541902238}
   m_Layer: 0
   m_Name: STManager
   m_TagString: Untagged
@@ -1439,6 +1461,59 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26b732526e2d1c042a7206afd6ec2e14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1541902237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1541902234}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0b312d8e1384144eb7656e34f95c392, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locale: es
+  speed: 1
+  speedStep: 0.05
+  pitch: 1
+  pitchStep: 0.05
+  saveSetting: 1
+  saveKey: 
+  OnStart:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDone:
+    m_PersistentCalls:
+      m_Calls: []
+  OnStop:
+    m_PersistentCalls:
+      m_Calls: []
+  OnStatus:
+    m_PersistentCalls:
+      m_Calls: []
+  OnSpeedChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  OnPitchChanged:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &1541902238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1541902234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fc52d971b6966347be4fc23575f778d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  txt: Bien y Tu
+  language: es-US-m
+  speakPicthStep: 0.5
+  speakSpeedStep: 0.25
 --- !u!1 &1597313656
 GameObject:
   m_ObjectHideFlags: 0
