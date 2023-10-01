@@ -321,7 +321,7 @@ namespace FantomLib
         //Initialize Text To Speech
         //Note: The result is returned to the status callback.
         public void InitializeTextToSpeech()
-        {
+        { //Get a initialization status
             ResetInitializeStatus();
 #if UNITY_EDITOR
             Debug.Log("InitTextToSpeech");
