@@ -9,7 +9,7 @@ using FantomLib;
 
 public class HandleResponse : MonoBehaviour
 {
-    [SerializeField] private HandlerChtGpt assitent;
+    [SerializeField] private HandlerCht assitent;
     [SerializeField] private TextMeshProUGUI txt;
     [SerializeField] private TextToSpeechController controller;
 
@@ -37,26 +37,37 @@ public class HandleResponse : MonoBehaviour
 
     public void OnFinalSpeechResult(string resultado)
     {
-
+        resultado = resultado.ToLower();
         if (resultado != null)
         {
-            UnityEvent respuesta = null;
-            foreach(string key in commands.Keys) {
-                if (key.Contains(resultado.ToLower()) || resultado.ToLower().Contains(key))
+            foreach(var res in resultado.Split(","))
+            {
+                UnityEvent respuesta = getResult(res);
+                if (respuesta != null)
                 {
-                    respuesta = commands[key];
+                    respuesta?.Invoke();
+                    break;
+                }
+                else if (resultado != "")
+                {
+                    assitent.EnviarSolicitudAOpenAI(resultado);
+                    break;
                 }
             }
-            
-            if (respuesta != null)
+        }
+    }
+
+    public UnityEvent getResult(string resultado)
+    {
+        UnityEvent respuesta = null;
+        foreach (string key in commands.Keys)
+        {
+            if (key.Contains(resultado) || resultado.Contains(key))
             {
-                respuesta?.Invoke();
-            }
-            else if (resultado != "")
-            {
-                assitent.EnviarSolicitudAOpenAI(resultado.ToLower());
+                respuesta = commands[key];
             }
         }
+        return respuesta;
     }
 
     public void SpeechResult(string mess)

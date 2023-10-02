@@ -6,6 +6,6 @@ public class AjustarRot : MonoBehaviour
 {
     public void Ajustar()
     {
-        transform.rotation = Quaternion.Euler(0, Camera.current.transform.rotation.eulerAngles.y -180, 0);
+        transform.LookAt(Camera.main.transform);
     }
 }
