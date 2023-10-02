@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44728804, g: 0.49666327, b: 0.57293296, a: 1}
+  m_IndirectSpecularColor: {r: 0.44728756, g: 0.49666297, b: 0.57293206, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -687,6 +687,7 @@ GameObject:
   - component: {fileID: 154373618}
   - component: {fileID: 154373620}
   - component: {fileID: 154373622}
+  - component: {fileID: 154373623}
   m_Layer: 7
   m_Name: STManager
   m_TagString: Untagged
@@ -728,18 +729,6 @@ MonoBehaviour:
   OnStart:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1892554592}
-        m_TargetAssemblyTypeName: AnimController, Assembly-CSharp
-        m_MethodName: SetTrueAnim
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: IsTalking
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 10665100}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -754,7 +743,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 89778139}
         m_TargetAssemblyTypeName: AnimController, Assembly-CSharp
-        m_MethodName: SetTrueAnim
+        m_MethodName: SetFalseAnim
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -762,6 +751,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Dest
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1892554592}
+        m_TargetAssemblyTypeName: AnimController, Assembly-CSharp
+        m_MethodName: SetTrueAnim
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: IsTalking
           m_BoolArgument: 0
         m_CallState: 2
   OnDone:
@@ -781,7 +782,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 89778139}
         m_TargetAssemblyTypeName: AnimController, Assembly-CSharp
-        m_MethodName: SetFalseAnimWithTime
+        m_MethodName: SetTrueAnim
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -808,7 +809,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 89778139}
         m_TargetAssemblyTypeName: AnimController, Assembly-CSharp
-        m_MethodName: SetFalseAnimWithTime
+        m_MethodName: SetTrueAnim
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -854,15 +855,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68f6246788b5d31498c0fff200a840a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  txtUI: {fileID: 1211055110}
+  assitent: {fileID: 154373623}
+  txt: {fileID: 1211055110}
+  controller: {fileID: 154373620}
   voiceCommand:
   - keyword: hola
     response:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 154373620}
-          m_TargetAssemblyTypeName: FantomLib.TextToSpeechController, Assembly-CSharp
-          m_MethodName: StartSpeech
+        - m_Target: {fileID: 154373622}
+          m_TargetAssemblyTypeName: HandleResponse, Assembly-CSharp
+          m_MethodName: SpeechResult
           m_Mode: 5
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -872,13 +875,13 @@ MonoBehaviour:
             m_StringArgument: Hola, Un Placer
             m_BoolArgument: 0
           m_CallState: 2
-  - keyword: "com\xF3 est\xE1s"
+  - keyword: "c\xF3mo est\xE1s"
     response:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 154373620}
-          m_TargetAssemblyTypeName: FantomLib.TextToSpeechController, Assembly-CSharp
-          m_MethodName: StartSpeech
+        - m_Target: {fileID: 154373622}
+          m_TargetAssemblyTypeName: HandleResponse, Assembly-CSharp
+          m_MethodName: SpeechResult
           m_Mode: 5
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -892,9 +895,9 @@ MonoBehaviour:
     response:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 154373620}
-          m_TargetAssemblyTypeName: FantomLib.TextToSpeechController, Assembly-CSharp
-          m_MethodName: StartSpeech
+        - m_Target: {fileID: 154373622}
+          m_TargetAssemblyTypeName: HandleResponse, Assembly-CSharp
+          m_MethodName: SpeechResult
           m_Mode: 5
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -908,9 +911,9 @@ MonoBehaviour:
     response:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 154373620}
-          m_TargetAssemblyTypeName: FantomLib.TextToSpeechController, Assembly-CSharp
-          m_MethodName: StartSpeech
+        - m_Target: {fileID: 154373622}
+          m_TargetAssemblyTypeName: HandleResponse, Assembly-CSharp
+          m_MethodName: SpeechResult
           m_Mode: 5
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -924,9 +927,9 @@ MonoBehaviour:
     response:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 154373620}
-          m_TargetAssemblyTypeName: FantomLib.TextToSpeechController, Assembly-CSharp
-          m_MethodName: StartSpeech
+        - m_Target: {fileID: 154373622}
+          m_TargetAssemblyTypeName: HandleResponse, Assembly-CSharp
+          m_MethodName: SpeechResult
           m_Mode: 5
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -940,9 +943,9 @@ MonoBehaviour:
     response:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 154373620}
-          m_TargetAssemblyTypeName: FantomLib.TextToSpeechController, Assembly-CSharp
-          m_MethodName: StartSpeech
+        - m_Target: {fileID: 154373622}
+          m_TargetAssemblyTypeName: HandleResponse, Assembly-CSharp
+          m_MethodName: SpeechResult
           m_Mode: 5
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -952,6 +955,19 @@ MonoBehaviour:
             m_StringArgument: Pues, yo creo que si
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &154373623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 154373617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca0ef42764aa55741a4ba4f8a51ff2ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 154373620}
 --- !u!1 &178135546
 GameObject:
   m_ObjectHideFlags: 0
@@ -2534,7 +2550,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1109456495}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2542,7 +2558,7 @@ Transform:
   - {fileID: 10665101}
   - {fileID: 691303463}
   m_Father: {fileID: 938524918}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &1109456497
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3489,18 +3505,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1892554592}
-        m_TargetAssemblyTypeName: AnimController, Assembly-CSharp
-        m_MethodName: SetFalseAnim
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: isLooking
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1634022596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3710,6 +3714,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 1892554592}
+  test: {fileID: 154373620}
 --- !u!1 &1934417214
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,11 +5,13 @@ using UnityEngine.UI;
 using UnityEngine.Events;
 using System;
 using TMPro;
+using FantomLib;
 
 public class HandleResponse : MonoBehaviour
 {
-
-    [SerializeField] private TextMeshProUGUI txtUI;
+    [SerializeField] private HandlerChtGpt assitent;
+    [SerializeField] private TextMeshProUGUI txt;
+    [SerializeField] private TextToSpeechController controller;
 
     [Serializable]
     public struct VoiceCommand
@@ -50,7 +52,16 @@ public class HandleResponse : MonoBehaviour
             {
                 respuesta?.Invoke();
             }
-            txtUI.text = resultado;
+            else if (resultado != "")
+            {
+                assitent.EnviarSolicitudAOpenAI(resultado.ToLower());
+            }
         }
+    }
+
+    public void SpeechResult(string mess)
+    {
+        controller.StartSpeech(mess);
+        txt.text = mess;
     }
 }
