@@ -7,7 +7,7 @@ using FantomLib;
 
 public class HandlerChtGpt : MonoBehaviour
 {
-    private string apiKey = "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";
+    public string apiKey;
     private string openAIEndpoint = "https://api.openai.com/v1/chat/completions"; // El endpoint de la API de OpenAI
     public TextToSpeechController controller;
 
