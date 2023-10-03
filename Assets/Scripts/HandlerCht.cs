@@ -25,11 +25,20 @@ public class HandlerCht : MonoBehaviour
 
     IEnumerator EnviarSolicitud(string inputText)
     {
-        string jsonData = "{\"prompt\":{\"text\":" + "\"Eres un asistente de voz, te llamas Guato, de un centro comercial llamado UAO Mall, tu misión es ayudar al usuario y guiarlo a que pregunte cosas como los locales o las promociones, ya hay un código que responde esas preguntas. Responde con poco texto y sin saltos de linea. \n El usuario hizo la siguiente prompt: " + inputText + "\"}}";
+        string jsonData = "";
 
         int intent = 0;
         while (intent < 5 )
         {
+            if(intent < 3)
+            {
+                jsonData = "{\"prompt\":{\"text\":" + "\"Eres un asistente de voz, te llamas Guato, de un centro comercial llamado UAO Mall, tu misión es ayudar al usuario y guiarlo a que pregunte cosas como los locales o las promociones, ya hay un código que responde esas preguntas. Responde con poco texto y sin saltos de linea. \n El usuario hizo la siguiente prompt: " + inputText + "\"}}";
+            }
+            else
+            {
+                jsonData = "{\"prompt\":{\"text\":" + "\"" + inputText + "\"}}";
+            }
+
             UnityWebRequest request = UnityWebRequest.PostWwwForm(openAIEndpoint, jsonData);
             request.SetRequestHeader("Content-Type", "application/json");
             request.uploadHandler = new UploadHandlerRaw(Encoding.UTF8.GetBytes(jsonData));
@@ -51,6 +60,7 @@ public class HandlerCht : MonoBehaviour
                         Debug.Log(responseJson[i].ToString());
                         res += responseJson[i].ToString();
                     }
+                    res = res.Replace("\\n", " ").Replace("\\r", "").Replace("*", "").Replace("-", " ").Replace("_", " ");
                     controller.StartSpeech(res);
                     txt.text = res;
                     break;

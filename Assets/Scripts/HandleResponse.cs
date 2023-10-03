@@ -17,13 +17,15 @@ public class HandleResponse : MonoBehaviour
     public struct VoiceCommand
     {
         public string keyword;
+        public List<string> alternatives;
         public UnityEvent response;
     }
 
     public VoiceCommand[] voiceCommand;
 
-    private Dictionary<string, UnityEvent> commands = new Dictionary<string, UnityEvent>();
- 
+    private Dictionary<string, UnityEvent> commands = new();
+    private Dictionary<string, List<string>> alternatives = new();
+
 
     private void Awake()
     {
@@ -31,7 +33,9 @@ public class HandleResponse : MonoBehaviour
         foreach (var command in voiceCommand)
         {
             commands.Add(command.keyword.ToLower(), command.response);
+            alternatives.Add(command.keyword.ToLower(), command.alternatives);
         }
+
     }
 
 
@@ -40,34 +44,31 @@ public class HandleResponse : MonoBehaviour
         resultado = resultado.ToLower();
         if (resultado != null)
         {
-            foreach(var res in resultado.Split(","))
+            UnityEvent respuesta = getResult(resultado);
+            if (respuesta != null)
             {
-                UnityEvent respuesta = getResult(res);
-                if (respuesta != null)
-                {
-                    respuesta?.Invoke();
-                    break;
-                }
-                else if (resultado != "")
-                {
-                    assitent.EnviarSolicitudAOpenAI(resultado);
-                    break;
-                }
+                respuesta?.Invoke();
+            }
+            else if (resultado != "")
+            {
+                assitent.EnviarSolicitudAOpenAI(resultado);
             }
         }
     }
 
     public UnityEvent getResult(string resultado)
     {
-        UnityEvent respuesta = null;
-        foreach (string key in commands.Keys)
+        foreach(string key in alternatives.Keys)
         {
-            if (key.Contains(resultado) || resultado.Contains(key))
+            foreach(string alter in alternatives[key])
             {
-                respuesta = commands[key];
+                if (resultado.Contains(alter))
+                {
+                    return commands[key];
+                }
             }
         }
-        return respuesta;
+        return null;
     }
 
     public void SpeechResult(string mess)
